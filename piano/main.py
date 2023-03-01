@@ -4,6 +4,8 @@ import pygame
 play.set_backdrop('light blue')
 sounds = []
 keys = []
+controls = ["q","w","e","r","t","z","u","i","o","p","a","s","d","f","g","h","j","k","l","y","x","c","v", "b"]
+print(len(controls))
 octaves = ["", "f", "g"]
 for i in range(3):
 
@@ -21,7 +23,7 @@ def start():
 @play.repeat_forever
 async def play_piano():
     for i in range(len(keys)):
-        if keys[i].is_clicked:
+        if keys[i].is_clicked or (play.key_is_pressed(controls[i])):
             keys[i].color = "white"
             sounds[i].play()
             await play.timer(seconds=0.3)
