@@ -37,10 +37,7 @@ def spawnEgg():
 def gameOver():
     fail.show()
     newGameButton.show()
-    platform1.hide()
-    platform2.hide()
-    platform3.hide()
-    platform4.hide()
+    
     egg.hide()
     basket.hide()
 
@@ -49,18 +46,8 @@ def startNewGame():
     fail.hide()
     welcome.hide()
     newGameButton.hide()
-    platform1.show()
-    platform2.show()
-    platform3.show()
-    platform4.show()
     egg.show()
     basket.show()
-    spawnEgg()
-
-
-@newGameButton.when_clicked
-def buttonClick():
-    startNewGame()
     platform1.start_physics(can_move=False)
     platform2.start_physics(can_move=False)
     platform3.start_physics(can_move=False)
@@ -68,13 +55,16 @@ def buttonClick():
     egg.start_physics(can_move=True, stable=False, bounciness=0)
     redline.start_physics(can_move=False)
     basket.start_physics(can_move=True, stable=True)
+    spawnEgg()
+
+
+@newGameButton.when_clicked
+def buttonClick():
+    startNewGame()
+    
     
 @play.when_program_starts
 def start():
-    platform1.hide()
-    platform2.hide()
-    platform3.hide()
-    platform4.hide()
     egg.hide()
     basket.hide()
     fail.hide()
