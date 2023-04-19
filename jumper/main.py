@@ -29,6 +29,7 @@ level3 = [
     play.new_box(color="blue", height=25, width=150, x=100, y=-200),
     play.new_box(color="blue", height=25, width=150, x=300, y=-100),
     play.new_box(color="blue", height=25, width=150, x=100, y=30)]
+
 levels = [level1, level2, level3]
 
 actualLevel = 0
@@ -106,9 +107,5 @@ async def do():
         gameOver.hide()
         resetLevel(actualLevel)
         deathsText.words = str(deaths)
-
-
-
-
 
 play.start_program()
